@@ -1,6 +1,6 @@
 {
   "name": "@inva-ui/react",
-  "version": "0.1.2",
+  "version": "0.1.8",
   "description": "Inva UI is a modular, accessible building blocks library for you to start off your react projects easily",
   "keywords": [
     "react",
@@ -8,8 +8,9 @@
     "ui"
   ],
   "author": "Shaun Mak",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "files": [
     "dist",
     "README.md"
@@ -25,21 +26,24 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
+    "ts-build": " rm -rf dist && npm run ts-build:esm && npm run ts-build:cjs",
+    "ts-build:esm": "tsc",
+    "ts-build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "npm-publish": "npm run ts-build && npm publish --access=public"
   },
   "eslintConfig": {
     "extends": [
@@ -93,12 +97,17 @@
     "@storybook/node-logger": "^6.3.7",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.7",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^4.3.8",
     "lint-staged": "^11.1.2",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.2"
   }
 }
