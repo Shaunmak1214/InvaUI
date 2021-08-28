@@ -1,3 +1,3 @@
-import Dropdown from "./Dropdown";
+import { Dropdown, useDropdown } from "./Dropdown/";
 
-export { Dropdown };
+export { Dropdown, useDropdown };
