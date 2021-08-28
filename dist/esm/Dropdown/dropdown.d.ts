@@ -8,6 +8,7 @@ interface dropdownData {
 interface Props {
     onSelect: (identifier: string) => void;
     dropdownData: Array<dropdownData>;
+    leadingIcon?: any;
 }
 declare const Index: React.FunctionComponent<Props>;
 export default Index;

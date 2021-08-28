@@ -34,7 +34,7 @@ var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = __importStar(require("react"));
 var styled_1 = require("./styled");
 var Index = function (_a) {
-    var onSelect = _a.onSelect, dropdownData = _a.dropdownData;
+    var onSelect = _a.onSelect, dropdownData = _a.dropdownData, leadingIcon = _a.leadingIcon;
     var _b = (0, react_1.useState)(""), selectInput = _b[0], setSelectInput = _b[1];
     var _c = (0, react_1.useState)(false), focused = _c[0], setFocused = _c[1];
     var _d = (0, react_1.useState)(dropdownData), filteredData = _d[0], setFilteredData = _d[1];
@@ -80,14 +80,14 @@ var Index = function (_a) {
         }
     }, []);
     var DropDownListRenderer = function () {
-        if (filteredData) {
-            return ((0, jsx_runtime_1.jsx)(styled_1.SelectDropDownList, { children: filteredData.map(function (data, id) { return ((0, jsx_runtime_1.jsxs)(styled_1.SelectDropDownTab, __assign({ onClick: function () { return handleSelectOption(data.primary); }, "data-value": data.primary }, { children: [(0, jsx_runtime_1.jsxs)(styled_1.SelectDropDownTabSection, __assign({ type: "left" }, { children: [(0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSectionField, __assign({ type: "primary" }, { children: data.primary }), void 0), data.secondary.map(function (data, idx) { return ((0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSectionField, __assign({ type: "secondary" }, { children: data }), idx)); })] }), void 0), data.thumbnailSrc && ((0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSection, __assign({ type: "right" }, { children: (0, jsx_runtime_1.jsx)("img", { style: { height: "100%", width: "100%" }, src: data.thumbnailSrc, alt: "thumbnails" }, void 0) }), void 0))] }), id)); }) }, void 0));
+        if (filteredData && filteredData.length > 0) {
+            return ((0, jsx_runtime_1.jsx)(styled_1.SelectDropDownList, { children: filteredData.map(function (data, id) { return ((0, jsx_runtime_1.jsxs)(styled_1.SelectDropDownTab, __assign({ onClick: function () { return handleSelectOption(data.primary); }, "data-value": data.primary }, { children: [(0, jsx_runtime_1.jsxs)(styled_1.SelectDropDownTabSection, __assign({ type: "left" }, { children: [(0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSectionField, __assign({ type: "primary" }, { children: data.primary }), void 0), data.secondary.map(function (data, idx) { return ((0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSectionField, __assign({ type: "secondary" }, { children: data }), idx)); })] }), void 0), data.thumbnailSrc && ((0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSection, __assign({ type: "right" }, { children: (0, jsx_runtime_1.jsx)("img", { style: { height: "auto", width: "100%", maxWidth: "40px" }, src: data.thumbnailSrc, alt: "thumbnails" }, void 0) }), void 0))] }), id)); }) }, void 0));
         }
         else {
             return ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsx)(styled_1.SelectDropDownTabSectionField, __assign({ type: "notfound" }, { children: "No data found" }), void 0) }, void 0));
         }
     };
-    return ((0, jsx_runtime_1.jsxs)(styled_1.SelectWrapper, __assign({ ref: componentRef }, { children: [(0, jsx_runtime_1.jsx)(styled_1.SelectHeader, { children: (0, jsx_runtime_1.jsx)(styled_1.SelectHeaderInput, { value: selectInput, type: "text", placeholder: "Search ... ", onChange: function (e) { return handleSearch(e); } }, void 0) }, void 0), (0, jsx_runtime_1.jsx)(styled_1.SelectDropDown, __assign({ visible: focused }, { children: (0, jsx_runtime_1.jsx)(DropDownListRenderer, {}, void 0) }), void 0)] }), void 0));
+    return ((0, jsx_runtime_1.jsxs)(styled_1.SelectWrapper, __assign({ ref: componentRef }, { children: [(0, jsx_runtime_1.jsxs)(styled_1.SelectHeader, { children: [(0, jsx_runtime_1.jsx)(styled_1.SelectHeaderInput, { value: selectInput, type: "text", placeholder: "Search ... ", onChange: function (e) { return handleSearch(e); } }, void 0), leadingIcon && ((0, jsx_runtime_1.jsx)(styled_1.SelectHeaderInputIcon, { src: leadingIcon, alt: "search icon" }, void 0))] }, void 0), (0, jsx_runtime_1.jsx)(styled_1.SelectDropDown, __assign({ visible: focused }, { children: (0, jsx_runtime_1.jsx)(DropDownListRenderer, {}, void 0) }), void 0)] }), void 0));
 };
 react_1.default.memo(Index);
 exports.default = Index;

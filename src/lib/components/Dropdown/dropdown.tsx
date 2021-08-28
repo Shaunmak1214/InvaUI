@@ -3,6 +3,7 @@ import {
   SelectWrapper,
   SelectHeader,
   SelectHeaderInput,
+  SelectHeaderInputIcon,
   SelectDropDown,
   SelectDropDownList,
   SelectDropDownTab,
@@ -19,11 +20,13 @@ interface dropdownData {
 interface Props {
   onSelect: (identifier: string) => void;
   dropdownData: Array<dropdownData>;
+  leadingIcon?: any;
 }
 
 const Index: React.FunctionComponent<Props> = ({
   onSelect,
   dropdownData,
+  leadingIcon,
 }: Props) => {
   const [selectInput, setSelectInput] = useState("");
   const [focused, setFocused] = useState(false);
@@ -75,7 +78,7 @@ const Index: React.FunctionComponent<Props> = ({
   }, []);
 
   const DropDownListRenderer = () => {
-    if (filteredData) {
+    if (filteredData && filteredData.length > 0) {
       return (
         <SelectDropDownList>
           {filteredData.map((data, id) => (
@@ -97,7 +100,7 @@ const Index: React.FunctionComponent<Props> = ({
               {data.thumbnailSrc && (
                 <SelectDropDownTabSection type="right">
                   <img
-                    style={{ height: "100%", width: "100%" }}
+                    style={{ height: "auto", width: "100%", maxWidth: "40px" }}
                     src={data.thumbnailSrc}
                     alt="thumbnails"
                   />
@@ -128,7 +131,9 @@ const Index: React.FunctionComponent<Props> = ({
           placeholder="Search ... "
           onChange={(e) => handleSearch(e)}
         ></SelectHeaderInput>
-        {/* <SelectHeaderInputIcon src={Search} alt="search icon" /> */}
+        {leadingIcon && (
+          <SelectHeaderInputIcon src={leadingIcon} alt="search icon" />
+        )}
       </SelectHeader>
       <SelectDropDown visible={focused}>
         <DropDownListRenderer />

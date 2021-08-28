@@ -37,7 +37,7 @@ export const SelectHeaderInput = styled.input`
   border: none;
   width: 100%;
   font-family: "Poppins";
-  border: 2px solid transparent;
+  border: 2px solid #f5f5f5;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -61,10 +61,11 @@ export const SelectHeaderInputIcon = styled.img`
 export const SelectDropDown = styled.div`
   position: absolute;
   width: 100%;
+  max-width: 100%;
   background-color: white;
   border: 2px solid #f1f1f1;
   border-radius: 4px;
-  padding: 10px 10px;
+  padding: 5px 10px;
   margin-top: 5px;
   max-height: 300px;
   overflow: auto;
@@ -104,7 +105,7 @@ export const SelectDropDownTab = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  padding: 15px 15px;
+  padding: 10px 20px;
 
   &:hover {
     background-color: #f5f5f5;
@@ -124,6 +125,7 @@ export const SelectDropDownTabSection = styled.div`
 `;
 
 export const SelectDropDownTabSectionField = styled.div`
+  text-align: start;
   ${(props: ThemedStyledProps<SelectDropDownTabSectionField, any>) => {
     if (props.type === "primary") {
       return 'margin-bottom: 5px; font-family: "Quicksand"; font-size: 15px; font-weight: 600; color: black !important;';
