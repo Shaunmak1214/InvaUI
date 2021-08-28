@@ -1,3 +1,3 @@
-import React from "react";
-declare const Index: React.FunctionComponent;
-export default Index;
+import Dropdown from "./dropdown";
+import useDropdown from "./hooks";
+export { Dropdown, useDropdown };

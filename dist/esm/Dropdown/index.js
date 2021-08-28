@@ -1,5 +1,3 @@
-import React from "react";
-var Index = function () {
-    return React.createElement("h1", null, "Dropdown");
-};
-export default Index;
+import Dropdown from "./dropdown";
+import useDropdown from "./hooks";
+export { Dropdown, useDropdown };

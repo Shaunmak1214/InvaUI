@@ -1,5 +1,5 @@
-import React from "react";
+import { jsx as _jsx } from "react/jsx-runtime";
 var Index = function () {
-    return React.createElement("h1", null, "Select");
+    return _jsx("h1", { children: "Select" }, void 0);
 };
 export default Index;
