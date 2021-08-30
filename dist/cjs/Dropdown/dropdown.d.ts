@@ -9,6 +9,8 @@ interface Props {
     onSelect: (identifier: string) => void;
     dropdownData: Array<dropdownData>;
     leadingIcon?: any;
+    scrollToLoad?: boolean;
+    maxItemsOnLoad?: number;
 }
 declare const Index: React.FunctionComponent<Props>;
 export default Index;

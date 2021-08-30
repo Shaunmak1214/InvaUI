@@ -9,37 +9,44 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React, { useState, useEffect, useRef } from "react";
-import { SelectWrapper, SelectHeader, SelectHeaderInput, SelectHeaderInputIcon, SelectDropDown, SelectDropDownList, SelectDropDownTab, SelectDropDownTabSection, SelectDropDownTabSectionField, } from "./styled";
+import { SelectWrapper, SelectHeader, SelectHeaderInput, SelectHeaderInputIcon, SelectDropDown } from "./styled";
+import { DropdownListRenderer } from './utils';
 var Index = function (_a) {
     var onSelect = _a.onSelect, dropdownData = _a.dropdownData, leadingIcon = _a.leadingIcon;
+    var dropdownRef = useRef(null);
     var _b = useState(""), selectInput = _b[0], setSelectInput = _b[1];
-    var _c = useState(false), focused = _c[0], setFocused = _c[1];
-    var _d = useState(dropdownData), filteredData = _d[0], setFilteredData = _d[1];
-    // dropdown data scheme
-    // [
-    //   {
-    //     primary: String,
-    //     secondary: [Strings],
-    //     thumbnailSrc: String
-    //   }
-    // ]
+    var _c = useState(dropdownData), filteredData = _c[0], setFilteredData = _c[1];
     useEffect(function () {
         setFilteredData(dropdownData);
     }, [dropdownData]);
-    var handleSelectOption = function (identifier) {
-        setSelectInput(identifier);
-        setFocused(false);
-        onSelect(identifier);
+    var toggleDropdown = function (status) {
+        if (dropdownRef.current && status === 'open') {
+            dropdownRef.current.style.opacity = '1';
+            dropdownRef.current.style.transform = 'scaleY(1.00)';
+            dropdownRef.current.style.padding = '5px 10px';
+            dropdownRef.current.style.zIndex = '50';
+        }
+        else if (dropdownRef.current && status === 'close') {
+            dropdownRef.current.style.opacity = '0';
+            dropdownRef.current.style.transform = 'scaleY(0.00)';
+            dropdownRef.current.style.padding = '0px 0px';
+            dropdownRef.current.style.zIndex = '-1';
+        }
     };
+    var handleSelectOption = React.useCallback(function (identifier) {
+        setSelectInput(identifier);
+        toggleDropdown('close');
+        onSelect(identifier);
+    }, [onSelect]);
     var handleSearch = function (e) {
         var value = e.target.value.toLowerCase();
         var result = dropdownData.filter(function (data) {
             return data.primary.toLowerCase().search(value) != -1;
         });
         setSelectInput(value);
-        setFocused(true);
+        toggleDropdown('open');
         setFilteredData(result);
     };
     var componentRef = useRef(null);
@@ -50,23 +57,15 @@ var Index = function (_a) {
             if (componentRef && componentRef.current) {
                 var ref = componentRef.current;
                 if (ref.contains(e.target)) {
-                    setFocused(true);
+                    return;
                 }
                 else {
-                    setFocused(false);
+                    toggleDropdown('close');
                 }
             }
         }
     }, []);
-    var DropDownListRenderer = function () {
-        if (filteredData && filteredData.length > 0) {
-            return (_jsx(SelectDropDownList, { children: filteredData.map(function (data, id) { return (_jsxs(SelectDropDownTab, __assign({ onClick: function () { return handleSelectOption(data.primary); }, "data-value": data.primary }, { children: [_jsxs(SelectDropDownTabSection, __assign({ type: "left" }, { children: [_jsx(SelectDropDownTabSectionField, __assign({ type: "primary" }, { children: data.primary }), void 0), data.secondary.map(function (data, idx) { return (_jsx(SelectDropDownTabSectionField, __assign({ type: "secondary" }, { children: data }), idx)); })] }), void 0), data.thumbnailSrc && (_jsx(SelectDropDownTabSection, __assign({ type: "right" }, { children: _jsx("img", { style: { height: "auto", width: "100%", maxWidth: "40px" }, src: data.thumbnailSrc, alt: "thumbnails" }, void 0) }), void 0))] }), id)); }) }, void 0));
-        }
-        else {
-            return (_jsx(_Fragment, { children: _jsx(SelectDropDownTabSectionField, __assign({ type: "notfound" }, { children: "No data found" }), void 0) }, void 0));
-        }
-    };
-    return (_jsxs(SelectWrapper, __assign({ ref: componentRef }, { children: [_jsxs(SelectHeader, { children: [_jsx(SelectHeaderInput, { value: selectInput, type: "text", placeholder: "Search ... ", onChange: function (e) { return handleSearch(e); } }, void 0), leadingIcon && (_jsx(SelectHeaderInputIcon, { src: leadingIcon, alt: "search icon" }, void 0))] }, void 0), _jsx(SelectDropDown, __assign({ visible: focused }, { children: _jsx(DropDownListRenderer, {}, void 0) }), void 0)] }), void 0));
+    return (_jsxs(SelectWrapper, __assign({ ref: componentRef }, { children: [_jsxs(SelectHeader, { children: [_jsx(SelectHeaderInput, { value: selectInput, type: "text", placeholder: "Search ... ", onChange: function (e) { return handleSearch(e); }, onClick: function () { toggleDropdown('open'); } }, void 0), leadingIcon && (_jsx(SelectHeaderInputIcon, { src: leadingIcon, alt: "search icon" }, void 0))] }, void 0), _jsx(SelectDropDown, __assign({ ref: dropdownRef }, { children: _jsx(DropdownListRenderer, { filteredData: filteredData, handleSelect: handleSelectOption }, void 0) }), void 0)] }), void 0));
 };
 React.memo(Index);
 export default Index;

@@ -72,15 +72,13 @@ export const SelectDropDown = styled.div`
 
   transform-origin: top;
 
-  ${(props: ThemedStyledProps<SelectDropDownInterface, any>) => {
-    if (props.visible === true) {
-      return "transform: scaleY(1.00) !important; opacity: 1 !important; z-index: 1001 !important;";
-    } else {
-      return "transform: scaleY(0.00) !important; padding: 0px 0px !important; opacity: 0 !important; z-index: -1 !important;";
-    }
-  }};
-
   ${smoothTransition};
+
+  /* inital css */
+  opacity: 0;
+  transform: scaleY(0);
+  z-index: -1;
+  padding: 0px 0px;
 
   &::-webkit-scrollbar {
     width: 2px;
@@ -88,6 +86,14 @@ export const SelectDropDown = styled.div`
     margin-right: 5px;
   }
 `;
+
+// ${(props: ThemedStyledProps<SelectDropDownInterface, any>) => {
+//   if (props.visible === true) {
+//     return "transform: scaleY(1.00) !important; opacity: 1 !important; z-index: 1001 !important;";
+//   } else {
+//     return "transform: scaleY(0.00) !important; padding: 0px 0px !important; opacity: 0 !important; z-index: -1 !important;";
+//   }
+// }};
 
 export const SelectDropDownList = styled.div`
   width: 100%;
