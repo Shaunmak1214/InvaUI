@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 interface DropdownListProps {
     filteredData: any;
     handleSelect: (primary: string) => void;

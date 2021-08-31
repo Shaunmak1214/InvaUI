@@ -36,11 +36,15 @@ $ npm install @inva-ui/react
 
 _Note: To run the preceding commands, [Node.js](http://nodejs.org) and [npm](https://npmjs.com) must be installed._
 
-<!-- ## Components
+## Components
 
-| [<img width=190 src=https://cdn.rawgit.com/standard/standard/master/docs/logos/nodejs.png>](https://nodejs.org) | [<img width=190 src=https://cdn.rawgit.com/standard/standard/master/docs/logos/npm.png>](https://www.npmjs.com) | [<img width=190 src=https://cdn.rawgit.com/standard/standard/master/docs/logos/github.png>](https://github.com) | [<img width=190 src=https://cdn.rawgit.com/standard/standard/master/docs/logos/wormhole.png>](https://wormhole.app) |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -->
+<p>Lets look at the components provided 🔥</p>
 
+<table>
+  <tr>
+    <td valign="top"><p style="font-size: 15px;">Dropdown</p><a href="https://github.com/Shaunmak1214/InvaUI/tree/master/src/lib/components/Dropdown"><img src="https://res.cloudinary.com/shaun-storage/image/upload/v1630441319/dropdown_InvaUI_qbnqvl.png"/></a></td>
+  </tr>
+</table>
 ## Security Policies and Procedures
 
 The `@inva-ui/react` team and community take all security, application bugs in `@inva-ui/react` seriously. Please visit our [Github Issues](https://github.com/Shaunmak1214/inva-ui-react/issues) to report any bugs
