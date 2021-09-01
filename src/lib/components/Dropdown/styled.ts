@@ -33,20 +33,21 @@ export const SelectHeaderInput = styled.input`
   position: relative;
   padding: 15px 15px;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 4px;
   border: none;
   width: 100%;
   font-family: "Poppins";
-  border: 2px solid #f5f5f5;
+  border: 2.2px solid #f5f5f5;
+  background-color: #f5f5f5;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    border: 2px solid rgb(168, 194, 240);
+    border: 2.2px solid #000000;
   }
 
   &:focus {
     outline: none;
-    border: 2px solid rgb(136, 173, 238);
+    border: 2.2px solid #000000;
   }
 `;
 
@@ -60,15 +61,17 @@ export const SelectHeaderInputIcon = styled.img`
 
 export const SelectDropDown = styled.div`
   position: absolute;
-  width: 100%;
+  width: 90%;
   max-width: 100%;
   background-color: white;
-  border: 2px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 5px 10px;
-  margin-top: 5px;
+  margin-top: 10px;
   max-height: 300px;
   overflow: auto;
+
+  border: 0.5px solid #f5f5f5;
+  box-shadow: 0px 16px 40px rgba(213, 213, 213, 0.25);
 
   transform-origin: top;
 
@@ -81,9 +84,9 @@ export const SelectDropDown = styled.div`
   padding: 0px 0px;
 
   &::-webkit-scrollbar {
-    width: 2px;
+    width: 0px;
     height: 80%;
-    margin-right: 5px;
+    margin-right: 0px;
   }
 `;
 
@@ -105,7 +108,7 @@ export const SelectDropDownList = styled.div`
 
 export const SelectDropDownTab = styled.div`
   cursor: pointer;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

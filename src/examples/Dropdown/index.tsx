@@ -8,7 +8,7 @@ const App: React.FunctionComponent = () => {
   const { selected, onSelect } = useDropdown();
 
   return (
-    <div style={{ maxWidth: "900px" }}>
+    <div style={{ width: "100%", maxWidth: "350px" }}>
       <h1>Dropdown - InvaUI</h1>
       <h3>{selected}</h3>
       <Dropdown

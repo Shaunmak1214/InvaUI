@@ -25,7 +25,7 @@ var Index = function (_a) {
         if (dropdownRef.current && status === "open") {
             dropdownRef.current.style.opacity = "1";
             dropdownRef.current.style.transform = "scaleY(1.00)";
-            dropdownRef.current.style.padding = "5px 10px";
+            dropdownRef.current.style.padding = "20px 20px";
             dropdownRef.current.style.zIndex = "50";
         }
         else if (dropdownRef.current && status === "close") {
