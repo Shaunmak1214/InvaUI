@@ -135,15 +135,16 @@ export const SelectDropDownTabSection = styled.div`
 
 export const SelectDropDownTabSectionField = styled.div`
   text-align: start;
+  font-style: normal;
   ${(props: ThemedStyledProps<SelectDropDownTabSectionField, any>) => {
     if (props.type === "primary") {
-      return 'margin-bottom: 5px; font-family: "Quicksand"; font-size: 15px; font-weight: 600; color: black !important;';
+      return 'margin-bottom: 5px; font-family: "Poppins"; font-size: 15px; font-weight: 700; color: black !important;';
     } else if (props.type === "secondary") {
-      return 'margin-top: 0px !important; font-family: "Poppins"; font-size: 11px; font-weight: 500; color: rgb(163,163,163) !important;';
+      return 'margin-top: 0px !important; font-family: "Source Sans Pro"; font-size: 13px; font-weight: 500; color: rgb(163,163,163) !important;';
     } else if (props.type === "notfound") {
-      return 'margin-bottom: 5px; font-family: "Quicksand"; font-size: 12px; font-weight: 600; color: rgb(163,163,163) !important; width: 100%; display: flex; justify-content: center; align-item: center';
+      return 'margin-bottom: 5px; font-family: "Source Sans Pro"; font-size: 12px; font-weight: 600; color: rgb(163,163,163) !important; width: 100%; display: flex; justify-content: center; align-item: center';
     } else {
-      return 'margin-bottom: 5px; font-family: "Quicksand"; font-size: 15px; font-weight: 600; color: black !important;';
+      return 'margin-bottom: 5px; font-family: "Source Sans Pro"; font-size: 15px; font-weight: 600; color: black !important;';
     }
   }}
 `;
