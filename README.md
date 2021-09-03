@@ -46,6 +46,7 @@ _Note: To run the preceding commands, [Node.js](http://nodejs.org) and [npm](htt
     <td valign="top"><p style="font-size: 15px;">Select (Coming soon ...)</p><a href="#"><img src="https://res.cloudinary.com/shaun-storage/image/upload/v1630692754/Select_InvaUI_sf9qno.png"/></a></td>
   </tr>
 </table>
+
 ## Security Policies and Procedures
 
 The `@inva-ui/react` team and community take all security, application bugs in `@inva-ui/react` seriously. Please visit our [Github Issues](https://github.com/Shaunmak1214/inva-ui-react/issues) to report any bugs
