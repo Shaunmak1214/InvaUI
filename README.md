@@ -43,6 +43,7 @@ _Note: To run the preceding commands, [Node.js](http://nodejs.org) and [npm](htt
 <table>
   <tr>
     <td valign="top"><p style="font-size: 15px;">Dropdown</p><a href="https://github.com/Shaunmak1214/InvaUI/tree/master/src/lib/components/Dropdown"><img src="https://res.cloudinary.com/shaun-storage/image/upload/v1630441319/dropdown_InvaUI_qbnqvl.png"/></a></td>
+    <td valign="top"><p style="font-size: 15px;">Select (Coming soon ...)</p><a href="#"><img src="https://res.cloudinary.com/shaun-storage/image/upload/v1630692503/Select-InvaUI_jnvgo1.png"/></a></td>
   </tr>
 </table>
 ## Security Policies and Procedures
