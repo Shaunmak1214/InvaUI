@@ -56,7 +56,6 @@ export const SelectHeaderInputIcon = styled.img`
   width: 15px;
   position: absolute;
   right: 20px;
-  bottom: 17px;
 `;
 
 export const SelectDropDown = styled.div`
