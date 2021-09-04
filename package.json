@@ -1,6 +1,6 @@
 {
   "name": "@inva-ui/react",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Inva UI is a modular, accessible building blocks library for you to start off your react projects easily",
   "keywords": [
     "react",
@@ -37,6 +37,7 @@
     "react-dom": "^17.0.2"
   },
   "scripts": {
+    "bash-prepare": "chmod 755 emitFiles.sh && chmod 755 deploy.sh && chmod 755 versioning.sh",
     "start": "react-scripts start",
     "ts-build": " rm -rf dist && npm run ts-build:esm && npm run ts-build:cjs",
     "ts-build:esm": "tsc",
@@ -46,7 +47,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "npm-publish": "npm run ts-build && npm publish --access=public"
+    "npm-publish": "./emitFiles.sh && npm run ts-build && npm publish --access=public"
   },
   "eslintConfig": {
     "extends": [

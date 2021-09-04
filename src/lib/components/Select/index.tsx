@@ -1,7 +1,4 @@
-import React from "react";
+import Select from "./select";
+import useSelect from "./hooks";
 
-const Index: React.FunctionComponent = () => {
-  return <h1>Select</h1>;
-};
-
-export default Index;
+export { Select, useSelect };

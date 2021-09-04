@@ -1,0 +1,1 @@
+sed -i '' -e '/noEmit/d' tsconfig.json

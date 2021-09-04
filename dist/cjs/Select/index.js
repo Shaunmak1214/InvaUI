@@ -1,7 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var jsx_runtime_1 = require("react/jsx-runtime");
-var Index = function () {
-    return (0, jsx_runtime_1.jsx)("h1", { children: "Select" }, void 0);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.default = Index;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useSelect = exports.Select = void 0;
+var select_1 = __importDefault(require("./select"));
+exports.Select = select_1.default;
+var hooks_1 = __importDefault(require("./hooks"));
+exports.useSelect = hooks_1.default;
