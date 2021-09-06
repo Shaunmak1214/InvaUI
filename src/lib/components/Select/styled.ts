@@ -89,14 +89,6 @@ export const SelectDropDown = styled.div`
   }
 `;
 
-// ${(props: ThemedStyledProps<SelectDropDownInterface, any>) => {
-//   if (props.visible === true) {
-//     return "transform: scaleY(1.00) !important; opacity: 1 !important; z-index: 1001 !important;";
-//   } else {
-//     return "transform: scaleY(0.00) !important; padding: 0px 0px !important; opacity: 0 !important; z-index: -1 !important;";
-//   }
-// }};
-
 export const SelectDropDownList = styled.div`
   width: 100%;
   display: flex;
@@ -113,23 +105,38 @@ export const SelectDropDownTab = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
+  border: 0.5px solid transparent;
   padding: 10px 20px;
 
   &:hover {
-    background-color: #f5f5f5;
+    border: 1px solid #000000;
   }
 `;
 
-export const SelectDropDownTabSection = styled.div`
-  ${(props: ThemedStyledProps<SelectDropDownTabSection, any>) => {
-    if (props.type === "left") {
-      return "width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-item: flex-start;";
-    } else if (props.type === "right") {
-      return "max-height: 100%; max-width: 70px; display: flex; justify-content: center; align-item: center; padding: 10px 10px;";
-    } else {
-      return "width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-item: flex-start;";
-    }
-  }}
+export const SelectDropDownTabContentWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const SelectDropDownTabImage = styled.div`
+  max-height: 100%;
+  max-width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  margin-right: 20px;
+`;
+
+export const SelectDropDownTabContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 export const SelectDropDownTabSectionField = styled.div`

@@ -4,8 +4,10 @@ import React from "react";
 import {
   SelectDropDownList,
   SelectDropDownTab,
-  SelectDropDownTabSection,
   SelectDropDownTabSectionField,
+  SelectDropDownTabContentWrapper,
+  SelectDropDownTabImage,
+  SelectDropDownTabContent,
 } from "./styled";
 /* =============== End Dropdown List Renderer Imports =============== */
 
@@ -38,25 +40,27 @@ const DropdownListRenderer: React.FunctionComponent<DropdownListProps> = ({
             onClick={() => handleSelect(data.primary)}
             data-value={data.primary}
           >
-            <SelectDropDownTabSection type="left">
-              <SelectDropDownTabSectionField type="primary">
-                {data.primary}
-              </SelectDropDownTabSectionField>
-              {data.secondary.map((data, idx) => (
-                <SelectDropDownTabSectionField key={idx} type="secondary">
-                  {data}
+            <SelectDropDownTabContentWrapper>
+              {data.thumbnailSrc && (
+                <SelectDropDownTabImage>
+                  <img
+                    style={{ height: "auto", width: "100%", maxWidth: "40px" }}
+                    src={data.thumbnailSrc}
+                    alt="thumbnails"
+                  />
+                </SelectDropDownTabImage>
+              )}
+              <SelectDropDownTabContent>
+                <SelectDropDownTabSectionField type="primary">
+                  {data.primary}
                 </SelectDropDownTabSectionField>
-              ))}
-            </SelectDropDownTabSection>
-            {data.thumbnailSrc && (
-              <SelectDropDownTabSection type="right">
-                <img
-                  style={{ height: "auto", width: "100%", maxWidth: "40px" }}
-                  src={data.thumbnailSrc}
-                  alt="thumbnails"
-                />
-              </SelectDropDownTabSection>
-            )}
+                {data.secondary.map((data, idx) => (
+                  <SelectDropDownTabSectionField key={idx} type="secondary">
+                    {data}
+                  </SelectDropDownTabSectionField>
+                ))}
+              </SelectDropDownTabContent>
+            </SelectDropDownTabContentWrapper>
           </SelectDropDownTab>
         ))}
       </SelectDropDownList>
